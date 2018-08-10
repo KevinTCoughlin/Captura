@@ -41,6 +41,14 @@
                     TabStripPlacement="Left"
                     BorderThickness="0"
                     Margin="10,5">
+            <TabControl.Resources>
+                <Style x:Key="TabLabel"
+                       TargetType="Label"
+                       BasedOn="{StaticResource {x:Type Label}}">
+                    <Setter Property="Margin" Value="5,0,0,0"/>
+                    <Setter Property="FontSize" Value="9"/>
+                </Style>
+            </TabControl.Resources>
             <TabControl.ContentTemplate>
                 <DataTemplate>
                     <DockPanel>
@@ -53,108 +61,148 @@
             </TabControl.ContentTemplate>
             <TabItem>
                 <TabItem.Header>
-                    <Path Data="{StaticResource IconVideo}"
-                          Width="15"
-                          Height="15"
-                          Stretch="Uniform"
-                          Margin="0,5"
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center"
-                          ToolTip="{Binding Video, Source={StaticResource Loc}, Mode=OneWay}"/>
+                    <DockPanel>
+                        <Path Data="{StaticResource IconVideo}"
+                              Width="15"
+                              Height="15"
+                              Stretch="Uniform"
+                              Margin="0,5"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              ToolTip="{Binding Video, Source={StaticResource Loc}, Mode=OneWay}"/>
+
+                        <Label Content="{Binding Video, Source={StaticResource Loc}, Mode=OneWay}"
+                               Style="{StaticResource TabLabel}"/>
+                    </DockPanel>
                 </TabItem.Header>
 
                 <Frame Source="VideoPage.xaml"/>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <Path Data="{StaticResource IconSpeaker}"
-                          Width="15"
-                          Height="15"
-                          Margin="0,5"
-                          Stretch="Uniform"
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center"
-                          ToolTip="{Binding Audio, Source={StaticResource Loc}, Mode=OneWay}"/>
+                    <DockPanel>
+                        <Path Data="{StaticResource IconSpeaker}"
+                              Width="15"
+                              Height="15"
+                              Margin="0,5"
+                              Stretch="Uniform"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              ToolTip="{Binding Audio, Source={StaticResource Loc}, Mode=OneWay}"/>
+
+                        <Label Style="{StaticResource TabLabel}"
+                               Content="{Binding Audio, Source={StaticResource Loc}, Mode=OneWay}"/>
+                    </DockPanel>
                 </TabItem.Header>
                 
                 <Frame Source="AudioPage.xaml"/>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <Path Data="{StaticResource IconImage}"
-                          Width="15"
-                          Height="15"
-                          Margin="0,5"
-                          Stretch="Uniform"
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center"
-                          ToolTip="{Binding ScreenShot, Source={StaticResource Loc}, Mode=OneWay}"/>
+                    <DockPanel>
+                        <Path Data="{StaticResource IconImage}"
+                              Width="15"
+                              Height="15"
+                              Margin="0,5"
+                              Stretch="Uniform"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              ToolTip="{Binding ScreenShot, Source={StaticResource Loc}, Mode=OneWay}"/>
+
+                        <Label Style="{StaticResource TabLabel}"
+                               Content="{Binding ScreenShot, Source={StaticResource Loc}, Mode=OneWay}"/>
+                    </DockPanel>
                 </TabItem.Header>
 
                 <Frame Source="ScreenShotsPage.xaml"/>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <Path Data="{StaticResource IconHistory}"
-                          Width="15"
-                          Height="15"
-                          Margin="0,5"
-                          Stretch="Uniform"
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center"
-                          ToolTip="{Binding Recent, Source={StaticResource Loc}, Mode=OneWay}"/>
+                    <DockPanel>
+                        <Path Data="{StaticResource IconHistory}"
+                              Width="15"
+                              Height="15"
+                              Margin="0,5"
+                              Stretch="Uniform"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              ToolTip="{Binding Recent, Source={StaticResource Loc}, Mode=OneWay}"/>
+
+                        <Label Style="{StaticResource TabLabel}"
+                               Content="{Binding Recent, Source={StaticResource Loc}, Mode=OneWay}"/>
+                    </DockPanel>
                 </TabItem.Header>
 
                 <Frame Source="RecentPage.xaml"/>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <Path Data="{StaticResource IconWeb}"
-                          Width="15"
-                          Height="15"
-                          Margin="0,5"
-                          Stretch="Uniform"
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center"
-                          ToolTip="{Binding Proxy, Source={StaticResource Loc}, Mode=OneWay}"/>
+                    <DockPanel>
+                        <Path Data="{StaticResource IconWeb}"
+                              Width="15"
+                              Height="15"
+                              Margin="0,5"
+                              Stretch="Uniform"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              ToolTip="{Binding Proxy, Source={StaticResource Loc}, Mode=OneWay}"/>
+
+                        <Label Style="{StaticResource TabLabel}"
+                               Content="{Binding Proxy, Source={StaticResource Loc}, Mode=OneWay}"/>
+                    </DockPanel>
                 </TabItem.Header>
 
                 <Frame Source="ProxyPage.xaml"/>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <Label Content="FF"
-                           FontWeight="UltraBold"
-                           FontSize="13"
-                           Margin="0,3"
-                           ToolTip="FFmpeg"/>
+                    <DockPanel>
+                        <Label Content="FF"
+                               FontWeight="UltraBold"
+                               FontSize="13"
+                               Margin="0,3"
+                               ToolTip="FFmpeg"/>
+
+                        <Label Content="FFmpeg"
+                               Style="{StaticResource TabLabel}"/>
+                    </DockPanel>
                 </TabItem.Header>
                 <Frame Source="FFmpegPage.xaml"/>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <Path Data="{StaticResource IconSettings}"
-                          Width="15"
-                          Height="15"
-                          Margin="0,5"
-                          Stretch="Uniform"
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center"
-                          ToolTip="{Binding Configure, Source={StaticResource Loc}, Mode=OneWay}"/>
+                    <DockPanel>
+                        <Path Data="{StaticResource IconSettings}"
+                              Width="15"
+                              Height="15"
+                              Margin="0,5"
+                              Stretch="Uniform"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              ToolTip="{Binding Configure, Source={StaticResource Loc}, Mode=OneWay}"/>
+
+                        <Label Content="{Binding Configure, Source={StaticResource Loc}, Mode=OneWay}"
+                               Style="{StaticResource TabLabel}"/>
+                    </DockPanel>
                 </TabItem.Header>
 
                 <Frame Source="ConfigPage.xaml"/>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <Path Data="{StaticResource IconHelp}"
-                          Width="15"
-                          Height="15"
-                          Margin="0,5"
-                          Stretch="Uniform"
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center"
-                          ToolTip="{Binding About, Source={StaticResource Loc}, Mode=OneWay}"/>
+                    <DockPanel>
+                        <Path Data="{StaticResource IconHelp}"
+                              Width="15"
+                              Height="15"
+                              Margin="0,5"
+                              Stretch="Uniform"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              ToolTip="{Binding About, Source={StaticResource Loc}, Mode=OneWay}"/>
+
+                        <Label Content="Help"
+                               Style="{StaticResource TabLabel}"/>
+                    </DockPanel>
                 </TabItem.Header>
                 
                 <Frame Source="AboutPage.xaml"/>

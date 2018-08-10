@@ -38,7 +38,18 @@
                           ItemsSource="{Binding VideoViewModel.AvailableVideoSourceKinds}"
                           SelectedValue="{Binding VideoViewModel.SelectedVideoSourceKind, Mode=TwoWay}"
                           DisplayMemberPath="Name"
-                          IsEnabled="{Binding RecordingViewModel.RecorderState, Converter={StaticResource NotRecordingConverter}}"/>
+                          IsEnabled="{Binding RecordingViewModel.RecorderState, Converter={StaticResource NotRecordingConverter}}">
+                    <ComboBox.ToolTip>
+                        <StackPanel MinWidth="200">
+                            <Label Content="{Binding VideoViewModel.SelectedVideoSourceKind.Name}"
+                                   ContentStringFormat="{}Video Source Kind: {0}"
+                                   FontWeight="Bold"
+                                   Margin="0,0,0,5"/>
+                            
+                            <Label Content="{Binding VideoViewModel.SelectedVideoSourceKind.Description}"/>
+                        </StackPanel>
+                    </ComboBox.ToolTip>
+                </ComboBox>
 
                 <ComboBox VerticalAlignment="Center" 
                           Margin="3,0,0,0"
@@ -52,7 +63,7 @@
             <Grid Margin="0,5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
                 <Path Data="{StaticResource IconVideo}"
@@ -69,9 +80,20 @@
                           ItemsSource="{Binding VideoViewModel.AvailableVideoWriterKinds}" 
                           SelectedValue="{Binding VideoViewModel.SelectedVideoWriterKind, Mode=TwoWay}"
                           DisplayMemberPath="Name"
-                          IsEnabled="{Binding RecordingViewModel.RecorderState, Converter={StaticResource NotRecordingConverter}}"/>
+                          IsEnabled="{Binding RecordingViewModel.RecorderState, Converter={StaticResource NotRecordingConverter}}">
+                    <ComboBox.ToolTip>
+                        <StackPanel MinWidth="200">
+                            <Label Content="{Binding VideoViewModel.SelectedVideoWriterKind.Name}"
+                                   ContentStringFormat="{}Video Writer Kind: {0}"
+                                   FontWeight="Bold"
+                                   Margin="0,0,0,5"/>
 
-                <ComboBox VerticalAlignment="Center"
+                            <Label Content="{Binding VideoViewModel.SelectedVideoWriterKind.Description}"/>
+                        </StackPanel>
+                    </ComboBox.ToolTip>
+                </ComboBox>
+
+                    <ComboBox VerticalAlignment="Center"
                           Margin="5,0,0,0"
                           ItemsSource="{Binding VideoViewModel.AvailableVideoWriters}" 
                           SelectedValue="{Binding VideoViewModel.SelectedVideoWriter, Mode=TwoWay}"
